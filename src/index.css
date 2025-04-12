@@ -71,3 +71,7 @@ button:focus-visible {
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 @plugin "daisyui";
+
+html {
+  overflow-y: scroll;
+}

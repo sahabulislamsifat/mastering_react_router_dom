@@ -7,22 +7,24 @@ import {
   Navbar,
   NavbarBrand,
   NavbarCollapse,
-  NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 
 const NavbarComponent = () => {
   return (
-    <div>
-      <Navbar fluid rounded>
+    <div className="px-10 ">
+      <Navbar
+        fluid
+        className=" backdrop-blur-2xl bg-white z-50 fixed top-0 left-0 right-0 dark:bg-white/5"
+      >
         <NavbarBrand href="/">
           <img
             src="https://www.citypng.com/public/uploads/preview/brown-coffee-cup-logo-design-hd-png-701751694776791z8t9jck4mz.png"
-            className="mr-3 h-6 sm:h-9"
+            className="mr-3 h-14  sm:h-9"
             alt="Flowbite React Logo"
           />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <span className="self-center whitespace-nowrap text-xl font-semibold">
             Coffee House
           </span>
         </NavbarBrand>
@@ -55,9 +57,30 @@ const NavbarComponent = () => {
           <NavbarToggle />
         </div>
         <NavbarCollapse>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/coffees">Coffees</NavLink>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-black ${isActive ? "text-warning" : "hover:text-warning"}`
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-black ${isActive ? "text-warning" : "hover:text-warning"}`
+            }
+            to="/coffees"
+          >
+            Coffees
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-black ${isActive ? "text-warning" : "hover:text-warning"}`
+            }
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
         </NavbarCollapse>
       </Navbar>
     </div>

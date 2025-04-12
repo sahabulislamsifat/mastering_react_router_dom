@@ -3,7 +3,7 @@ import { Parallax } from "react-parallax";
 
 const ParallaxBanner = () => {
   return (
-    <div>
+    <div className="my-10">
       <Parallax
         bgImage="https://t4.ftcdn.net/jpg/02/34/63/07/360_F_234630793_eHKQucxaXftnWrecTJFITmD4cr3TlUgG.jpg"
         strength={300}

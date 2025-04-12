@@ -1,8 +1,12 @@
 import React from "react";
 import ParallaxBanner from "../components/ParallaxBanner";
 import ReusableHeading from "../components/ReusableHeading";
+import CategoriesTab from "../components/CategoriesTab";
+import { Outlet, useLoaderData } from "react-router-dom";
 
 const Home = () => {
+  const categories = useLoaderData();
+
   return (
     <div>
       {/* Banner  */}
@@ -15,7 +19,9 @@ const Home = () => {
         }
       ></ReusableHeading>
       {/* Categories tab section  */}
+      <CategoriesTab categories={categories}></CategoriesTab>
       {/* Dynamic Nested component  */}
+      <Outlet></Outlet>
     </div>
   );
 };
