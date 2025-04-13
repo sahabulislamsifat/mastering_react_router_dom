@@ -1,11 +1,15 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
-const Card = ({ coffee }) => {
+const Card = ({ coffee, handleRemove }) => {
   const { name, image, category, id, origin, type, rating, popularity } =
     coffee || {};
 
+  const { pathname } = useLocation();
+
   return (
-    <div className="max-w-sm  rounded-sm shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-slate-200">
+    <div className="max-w-sm relative rounded-sm shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-slate-200">
       <img
         src={image}
         alt={name}
@@ -30,13 +34,22 @@ const Card = ({ coffee }) => {
         </p>
 
         {/* Button */}
-        <button
-          onClick={() => alert(`Details of ${name}`)}
-          className="mt-4 w-full px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200 cursor-pointer"
+        <Link
+          to={`/coffee_details/${id}`}
+          className="mt-4 btn w-full px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200 cursor-pointer inline-block text-center"
         >
           View Details
-        </button>
+        </Link>
       </div>
+
+      {pathname === "/dashboard" && (
+        <button
+          onClick={() => handleRemove(id)}
+          className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 transition duration-200 cursor-pointer"
+        >
+          <FaTrash />
+        </button>
+      )}
     </div>
   );
 };
